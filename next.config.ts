@@ -8,8 +8,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
-      new URL("https://i.imgur.com/**"),
-      new URL("https://example.com/**"),
+      {
+        // To allow all the domain
+        protocol: "https",
+        hostname: "**",
+      },
     ],
     localPatterns: [
       {
