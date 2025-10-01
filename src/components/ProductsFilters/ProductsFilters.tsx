@@ -1,11 +1,11 @@
 const ProductsFilters = () => {
   return (
     <div className="shadow border border-gray-200 rounded-lg p-4 bg-white">
-      <h2 className="text-xl font-semibold mb-2">Filter By</h2>
+      <h2 className="text-xl font-semibold mb-4">Filter By</h2>
       <input
         type="text"
         placeholder="Search by title"
-        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
       />
       <div className="flex gap-2">
         <div className="relative w-1/2">

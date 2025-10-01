@@ -1,12 +1,12 @@
 import { GET_CATEGORIES_QUERY } from "@frontline/graphql/categories";
-import { fetchGraphQL } from "@frontline/libs/apolloClient";
+import { query } from "@frontline/libs/ApolloClient";
 import { Category } from "@frontline/types/category";
 
-export async function getCategories(): Promise<Category[]> {
-  const data = await fetchGraphQL<{ categories: Category[] }>({
+export const getCategories = async (): Promise<Category[] | undefined> => {
+  const { data } = await query<{ categories: Category[] }>({
     query: GET_CATEGORIES_QUERY,
-    variables: {},
+    fetchPolicy: "cache-first",
   });
 
-  return data.categories;
-}
+  return data?.categories;
+};
