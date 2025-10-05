@@ -1,8 +1,7 @@
 "use client";
 import { useCart } from "@frontline/context/CartContext";
-import Button from "@frontline/stories/Button/Button";
-import Toast from "@frontline/stories/Toast/Toast";
-import { Product } from "@frontline/types/product";
+import { Button, Toast } from "@frontline/stories";
+import type { Product } from "@frontline/types";
 import { MouseEvent, useState } from "react";
 
 export default function AddToCartButton({

@@ -1,7 +1,8 @@
 "use client";
 import { useCart } from "@frontline/context/CartContext";
-import Image from "next/image";
+import { Image } from "@frontline/stories";
 import Link from "next/link";
+import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 
 const Header = () => {
   const { totalItems } = useCart();
@@ -15,15 +16,9 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="p-6 py-6 bg-yellow-400 relative">
+      <div className="p-4 py-4 bg-yellow-400 relative">
         <Link href={"/cart"}>
-          <Image
-            src="/assets/images/cart.webp"
-            width={35}
-            height={35}
-            alt="Cart"
-            className=""
-          />
+          <ShoppingCartIcon className="w-10 h-10" />
           {totalItems > 0 && (
             <span className="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
               {totalItems}

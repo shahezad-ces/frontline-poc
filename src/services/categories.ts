@@ -1,9 +1,9 @@
 import {
   GET_CATEGORIES_QUERY,
   GET_CATEGORY_DETAILS_QUERY,
-} from "@frontline/graphql/categories";
+} from "@frontline/graphql";
 import { query } from "@frontline/libs/ApolloClient";
-import { Category } from "@frontline/types/category";
+import { Category } from "@frontline/types";
 
 export const getCategories = async (): Promise<Category[] | undefined> => {
   const { data } = await query<{ categories: Category[] }>({

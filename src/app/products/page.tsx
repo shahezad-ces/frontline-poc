@@ -29,7 +29,7 @@ export default async function ProductsPage({
 
   return (
     <div className="container mx-auto px-4 my-6 sm:px-6 lg:px-8 gap-6">
-      <h1 className="sm:text-2xl lg:text-3xl font-bold">
+      <h1 className="sm:text-2xl lg:text-3xl font-bold mb-4">
         {selectedCategory?.name}
       </h1>
       <div className="flex flex-col lg:flex-row gap-6">

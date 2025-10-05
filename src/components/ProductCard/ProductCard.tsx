@@ -1,26 +1,11 @@
 "use client";
-
-import { Product } from "@frontline/types/product";
-import Image from "next/image";
+import type { Product } from "@frontline/types";
 import Link from "next/link";
-import { useState } from "react";
+import { Image } from "@frontline/stories";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
 const ProductCard = (props: Product) => {
-  const { title, price, description, images, category, id } = props;
-  const [imgSrc, setImgSrc] = useState(images?.[0]);
-
-  const isValidUrl = (url: string) => {
-    try {
-      new URL(url);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
-  const imageUrl =
-    imgSrc && isValidUrl(imgSrc) ? imgSrc : "/assets/images/placeholder.jpg";
+  const { title, price, images, category, id } = props;
 
   return (
     <Link
@@ -31,12 +16,10 @@ const ProductCard = (props: Product) => {
         <Image
           placeholder="blur"
           blurDataURL="/assets/images/placeholder.jpg"
-          src={imageUrl}
+          src={images?.[0]}
           width={500}
           height={500}
           alt={title}
-          objectFit="cover"
-          onError={() => setImgSrc("/assets/images/placeholder.jpg")}
           className="w-full h-40 md:h-48 lg:h-56 object-cover rounded-t-md"
         />
         <div className="p-4">

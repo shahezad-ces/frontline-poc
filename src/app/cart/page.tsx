@@ -1,13 +1,9 @@
 "use client";
-import { getLocalStorage } from "@frontline/utils";
-import { CartItem } from "@frontline/types";
-import { MouseEvent, useEffect, useState } from "react";
-import Image from "next/image";
-import QuantitySelector from "@frontline/stories/QuantitySelector/QuantitySelector";
+import { MouseEvent } from "react";
 import { useCart } from "@frontline/context/CartContext";
-import Button from "@frontline/stories/Button/Button";
 import Link from "next/link";
 import { TrashIcon } from "@heroicons/react/20/solid";
+import { Button, Image, QuantitySelector } from "@frontline/stories";
 
 const CartPage = () => {
   const { cart, totalPrice, removeFromCart } = useCart();
@@ -57,7 +53,6 @@ const CartPage = () => {
                     width={100}
                     height={100}
                     alt={item.title}
-                    objectFit="cover"
                     className="w-full md:w-42 h-32 md:h-42 object-cover rounded-md"
                   />
                   <div className="space-y-1">

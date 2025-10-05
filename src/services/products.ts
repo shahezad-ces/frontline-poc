@@ -3,7 +3,7 @@ import {
   GET_PRODUCT_DETAILS_QUERY,
 } from "@frontline/graphql";
 import { query } from "@frontline/libs/ApolloClient";
-import { Product } from "@frontline/types/product";
+import type { Product } from "@frontline/types";
 
 export interface GetProductsParams {
   categoryId?: number;

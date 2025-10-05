@@ -1,7 +1,6 @@
-import AddToCartButton from "@frontline/components/AddToCartButton/AddToCartButton";
-import { getProductDetails } from "@frontline/services/products";
-import QuantitySelector from "@frontline/stories/QuantitySelector/QuantitySelector";
-import Image from "next/image";
+import { AddToCartButton } from "@frontline/components";
+import { getProductDetails } from "@frontline/services";
+import { QuantitySelector, Image } from "@frontline/stories";
 
 type ProductDetailPageProps = {
   params: Promise<{
@@ -15,20 +14,6 @@ export default async function ProductDetailPage({
   const { id } = await params;
 
   const productDetails = await getProductDetails(id);
-
-  const imgSrc = productDetails?.images?.[0];
-
-  const isValidUrl = (url: string) => {
-    try {
-      new URL(url);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
-  const imageUrl =
-    imgSrc && isValidUrl(imgSrc) ? imgSrc : "/assets/images/placeholder.jpg";
 
   if (!productDetails) {
     return (
@@ -50,13 +35,12 @@ export default async function ProductDetailPage({
         <div className="lg:col-span-4">
           <div className="border border-gray-400 rounded-lg overflow-hidden">
             <Image
-              src={imageUrl}
+              src={productDetails?.images?.[0]}
               width={500}
               height={500}
               alt={productDetails?.title || "Product Image"}
               placeholder="blur"
               blurDataURL="/assets/images/placeholder.jpg"
-              objectFit="cover"
               className="w-full object-cover rounded-md"
             />
           </div>
