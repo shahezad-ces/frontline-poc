@@ -26,8 +26,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/products",
-        destination: "/",
+        source: "/",
+        destination: "/products",
       },
     ];
   },

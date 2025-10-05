@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ApolloWrapper } from "@frontline/libs/ApolloWrapper";
+import { CartProvider } from "@frontline/context/CartContext";
+import Header from "@frontline/components/Header/Header";
 import "../styles/globals.scss";
 
 const geistSans = Geist({
@@ -28,7 +30,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ApolloWrapper>{children}</ApolloWrapper>
+        <ApolloWrapper>
+          <CartProvider>
+            <div className="bg-gray-50 min-h-screen">
+              <Header />
+              {children}
+            </div>
+          </CartProvider>
+        </ApolloWrapper>
       </body>
     </html>
   );

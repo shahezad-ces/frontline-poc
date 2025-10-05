@@ -1,5 +1,7 @@
-import { GET_PRODUCT_QUERY } from "@frontline/graphql/product";
-import { GET_PRODUCTS_QUERY } from "@frontline/graphql/products";
+import {
+  GET_PRODUCTS_QUERY,
+  GET_PRODUCT_DETAILS_QUERY,
+} from "@frontline/graphql";
 import { query } from "@frontline/libs/ApolloClient";
 import { Product } from "@frontline/types/product";
 
@@ -23,7 +25,6 @@ export const getProducts = async (
     offset = 0,
     limit = 20,
   } = params;
-
   const variables = {
     offset,
     limit,
@@ -45,11 +46,16 @@ export const getProducts = async (
 export const getProductDetails = async (
   productId: number
 ): Promise<Product | undefined> => {
-  const { data } = await query<{ product: Product }>({
-    query: GET_PRODUCT_QUERY,
-    variables: { id: productId },
-    fetchPolicy: "cache-first",
-  });
+  try {
+    const { data } = await query<{ product: Product }>({
+      query: GET_PRODUCT_DETAILS_QUERY,
+      variables: { id: productId },
+      fetchPolicy: "cache-first",
+    });
 
-  return data?.product;
+    return data?.product;
+  } catch (error) {
+    console.error("GraphQL Error:", error);
+    return undefined; // fallback
+  }
 };

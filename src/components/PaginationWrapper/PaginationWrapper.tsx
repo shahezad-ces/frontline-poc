@@ -7,7 +7,7 @@ const PaginationWrapper = () => {
   const [page, setPage] = useState(1);
 
   return (
-    <div className="flex items-center justify-end sm:justify-center lg:justify-end mt-6">
+    <div className="flex items-center justify-end sm:justify-center lg:justify-end">
       <Pagination
         currentPage={page}
         totalPages={13}

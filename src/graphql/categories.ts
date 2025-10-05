@@ -9,3 +9,13 @@ export const GET_CATEGORIES_QUERY = gql`
     }
   }
 `;
+
+export const GET_CATEGORY_DETAILS_QUERY = gql`
+  query GetCategory($id: ID!) {
+    category(id: $id) {
+      id
+      name
+      image
+    }
+  }
+`;

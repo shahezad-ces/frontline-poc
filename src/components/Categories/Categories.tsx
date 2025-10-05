@@ -1,12 +1,16 @@
-import { Category } from "@frontline/types/category";
+import { getCategories } from "@frontline/services";
+import type { Category } from "@frontline/types";
 import Link from "next/link";
 
-type Categories = {
-  categories: Category[] | undefined;
+type CategoriesProps = {
+  selectedCategory?: Category | null;
 };
 
-const Categories = (props: Categories) => {
-  const { categories } = props;
+const Categories = async (props: CategoriesProps) => {
+  const { selectedCategory } = props;
+
+  const categories = await getCategories();
+
   return (
     <div className="shadow border border-gray-200 rounded-lg p-4 bg-white">
       <h2 className="text-2xl font-semibold mb-2">Categories</h2>
@@ -15,7 +19,9 @@ const Categories = (props: Categories) => {
           <li key={category.id}>
             <Link
               href={`/products?categoryId=${category.id}`}
-              className="text-blue-800 font-semibold capitalize hover:underline"
+              className={`text-blue-800 font-semibold capitalize hover:underline ${
+                selectedCategory?.id === category.id ? "underline" : ""
+              }`}
             >
               {category.name}
             </Link>

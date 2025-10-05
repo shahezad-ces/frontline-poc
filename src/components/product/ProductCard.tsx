@@ -4,21 +4,34 @@ import { Product } from "@frontline/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
 const ProductCard = (props: Product) => {
   const { title, price, description, images, category, id } = props;
-  const [imgSrc, setImgSrc] = useState(images[0]);
+  const [imgSrc, setImgSrc] = useState(images?.[0]);
+
+  const isValidUrl = (url: string) => {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const imageUrl =
+    imgSrc && isValidUrl(imgSrc) ? imgSrc : "/assets/images/placeholder.jpg";
 
   return (
     <Link
       href={`/product/${id}`}
-      className="text-blue-800 font-semibold capitalize hover:underline"
+      className="text-blue-800 font-semibold capitalize"
     >
       <div className="bg-white shadow border border-gray-200 rounded-lg">
         <Image
           placeholder="blur"
           blurDataURL="/assets/images/placeholder.jpg"
-          src={imgSrc}
+          src={imageUrl}
           width={500}
           height={500}
           alt={title}
@@ -38,9 +51,8 @@ const ProductCard = (props: Product) => {
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </p>
-          <button className="w-full rounded-full bg-blue-800 px-5 py-2 text-sm leading-5 font-semibold text-white hover:bg-blue-700">
-            Add To Card
-          </button>
+
+          <AddToCartButton product={props} className="w-full" />
         </div>
       </div>
     </Link>
