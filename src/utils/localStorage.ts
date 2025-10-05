@@ -26,26 +26,3 @@ export const getLocalStorage = <T>(key: string): T | null => {
     return null;
   }
 };
-
-/**
- * Remove data from localStorage
- * @param key - The key to remove
- */
-export const removeLocalStorage = (key: string): void => {
-  try {
-    localStorage.removeItem(key);
-  } catch (error) {
-    console.error(`Error removing ${key} from localStorage:`, error);
-  }
-};
-
-/**
- * Clear all localStorage
- */
-export const clearLocalStorage = (): void => {
-  try {
-    localStorage.clear();
-  } catch (error) {
-    console.error("Error clearing localStorage:", error);
-  }
-};

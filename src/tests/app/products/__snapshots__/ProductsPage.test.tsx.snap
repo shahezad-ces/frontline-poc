@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ProductsPage (Server Component) handles categoryId provided but category details not found 1`] = `
+<DocumentFragment>
+  <div
+    class="container mx-auto px-4 my-6 sm:px-6 lg:px-8 gap-6"
+  >
+    <h1
+      class="sm:text-2xl lg:text-3xl font-bold mb-4"
+    />
+    <div
+      class="flex flex-col lg:flex-row gap-6"
+    >
+      <div
+        class="w-full lg:w-1/4 space-y-4"
+      >
+        <div
+          data-testid="categories"
+        >
+          Categories Component
+        </div>
+        <div
+          data-testid="filters"
+        >
+          Filters Component
+        </div>
+      </div>
+      <div
+        class="w-full lg:w-3/4"
+      >
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          <div>
+            Product 1
+          </div>
+          <div>
+            Product 2
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-6 w-full lg:w-3/4 lg:ml-auto"
+    >
+      <div
+        data-testid="pagination"
+      >
+        Pagination Component
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

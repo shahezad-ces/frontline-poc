@@ -21,6 +21,7 @@ const ProductCard = (props: Product) => {
           height={500}
           alt={title}
           className="w-full h-40 md:h-48 lg:h-56 object-cover rounded-t-md"
+          data-testid="product-image"
         />
         <div className="p-4">
           <h2 className="text-l font-semibold text-gray-800 line-clamp-2 h-15">

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`QuantitySelector Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center border border-gray-200 rounded-lg w-full md:w-50"
+  >
+    <button
+      class="w-20 h-10 p-2 flex items-center justify-center text-blue-600 text-2xl border-r border-gray-200 rounded-l-lg hover:bg-gray-200 cursor-pointer"
+    >
+      <svg
+        aria-hidden="true"
+        class="w-6 h-6 disabled:text-gray-200"
+        data-slot="icon"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+    <input
+      class="w-full text-center outline-none text-lg"
+      type="number"
+      value="5"
+    />
+    <button
+      class="w-20 h-10 p-2 flex items-center justify-center text-blue-600 text-2xl border-l border-gray-200 rounded-r-lg hover:bg-gray-200 cursor-pointer"
+    >
+      <svg
+        aria-hidden="true"
+        class="w-6 h-6"
+        data-slot="icon"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -42,6 +42,7 @@ export default async function ProductDetailPage({
               placeholder="blur"
               blurDataURL="/assets/images/placeholder.jpg"
               className="w-full object-cover rounded-md"
+              data-testid="product-image"
             />
           </div>
         </div>

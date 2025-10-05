@@ -1,15 +1,12 @@
 import { ReactNode } from "react";
 import { render } from "@testing-library/react";
-import { ApolloWrapper } from "@frontline/libs/ApolloWrapper";
 import { CartProvider } from "@frontline/context/CartContext";
+import { MockedProvider } from "@apollo/client/testing/react";
 
-const AllProviders = ({ children }: { children: ReactNode }) => {
-  return (
-    <ApolloWrapper>
-      <CartProvider>{children}</CartProvider>
-    </ApolloWrapper>
+export const renderWithProviders = (ui: ReactNode, { mocks = [] } = {}) => {
+  return render(
+    <MockedProvider mocks={mocks}>
+      <CartProvider>{ui}</CartProvider>
+    </MockedProvider>
   );
 };
-
-export const renderWithProviders = (ui: ReactNode, options = {}) =>
-  render(<AllProviders>{ui}</AllProviders>, options);

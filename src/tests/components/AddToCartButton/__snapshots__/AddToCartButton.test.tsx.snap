@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AddToCartButton Component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="rounded-full font-semibold transition-colors duration-200 focus:outline-none bg-blue-800 text-white hover:bg-blue-700 px-5 py-2 text-sm disabled:bg-blue-300 disabled:text-gray-100 disabled:cursor-not-allowed"
+    data-testid="add-to-cart"
+  >
+    Add to Cart
+  </button>
+</DocumentFragment>
+`;

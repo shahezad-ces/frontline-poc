@@ -17,30 +17,36 @@ export interface GetProductsParams {
 export const getProducts = async (
   params: GetProductsParams
 ): Promise<Product[] | undefined> => {
-  const {
-    categoryId,
-    price,
-    price_min,
-    price_max,
-    offset = 0,
-    limit = 20,
-  } = params;
-  const variables = {
-    offset,
-    limit,
-    ...(categoryId !== undefined && { categoryId }),
-    ...(price !== undefined && { price }),
-    ...(price_min !== undefined && { price_min }),
-    ...(price_max !== undefined && { price_max }),
-  };
+  try {
+    const {
+      categoryId,
+      price,
+      price_min,
+      price_max,
+      offset = 0,
+      limit = 20,
+    } = params;
 
-  const { data } = await query<{ products: Product[] }>({
-    query: GET_PRODUCTS_QUERY,
-    variables,
-    fetchPolicy: "cache-first",
-  });
+    const variables = {
+      offset,
+      limit,
+      ...(categoryId !== undefined && { categoryId }),
+      ...(price !== undefined && { price }),
+      ...(price_min !== undefined && { price_min }),
+      ...(price_max !== undefined && { price_max }),
+    };
 
-  return data?.products;
+    const { data } = await query<{ products: Product[] }>({
+      query: GET_PRODUCTS_QUERY,
+      variables,
+      fetchPolicy: "cache-first",
+    });
+
+    return data?.products;
+  } catch (error) {
+    console.error("GraphQL Error in getProducts:", error);
+    return undefined;
+  }
 };
 
 export const getProductDetails = async (
@@ -56,6 +62,6 @@ export const getProductDetails = async (
     return data?.product;
   } catch (error) {
     console.error("GraphQL Error:", error);
-    return undefined; // fallback
+    return undefined;
   }
 };

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ProductDetailPage (Server Component) matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container mx-auto my-6 px-6 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white border border-gray-200 rounded-lg"
+  >
+    <div
+      class="lg:col-span-4"
+    >
+      <div
+        class="border border-gray-400 rounded-lg overflow-hidden"
+      >
+        <img
+          alt="Test Product"
+          data-testid="product-image"
+          src="https://placehold.co/600x400"
+        />
+      </div>
+    </div>
+    <div
+      class="lg:col-span-8 space-y-2"
+    >
+      <h1
+        class="text-3xl font-bold"
+      >
+        Test Product
+      </h1>
+      <p
+        class="text-gray-500 text-sm"
+      >
+        Electronics
+      </p>
+      <p
+        class="text-red-600 text-3xl font-bold"
+      >
+        $199.99 
+      </p>
+      <p
+        class="text-green-600 font-semibold"
+      >
+        Save $350 (26%)
+      </p>
+      <div
+        data-testid="quantity-selector"
+      >
+        Quantity Selector
+      </div>
+      <p
+        class="text-gray-500 text-sm mt-6"
+      >
+        A great product for testing.
+      </p>
+      <button
+        data-testid="add-to-cart"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

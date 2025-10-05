@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ApolloWrapper } from "@frontline/libs/ApolloWrapper";
 import { CartProvider } from "@frontline/context/CartContext";
-import Header from "@frontline/components/Header/Header";
+import { Header } from "@frontline/components";
 import "../styles/globals.scss";
 
 const geistSans = Geist({

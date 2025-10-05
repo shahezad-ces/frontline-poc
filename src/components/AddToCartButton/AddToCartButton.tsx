@@ -23,7 +23,11 @@ export default function AddToCartButton({
 
   return (
     <>
-      <Button onClick={triggerAddToCart} className={className}>
+      <Button
+        data-testid="add-to-cart"
+        onClick={triggerAddToCart}
+        className={className}
+      >
         Add to Cart
       </Button>
       {showToast && (
