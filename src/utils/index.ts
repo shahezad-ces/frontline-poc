@@ -1,13 +1,3 @@
-import {
-  getLocalStorage,
-  setLocalStorage,
-  removeLocalStorage,
-  clearLocalStorage,
-} from "./localStorage";
+import { getLocalStorage, setLocalStorage } from "./localStorage";
 
-export {
-  getLocalStorage,
-  setLocalStorage,
-  removeLocalStorage,
-  clearLocalStorage,
-};
+export { getLocalStorage, setLocalStorage };

@@ -1,12 +1,46 @@
 import { AddToCartButton } from "@frontline/components";
 import { getProductDetails } from "@frontline/services";
 import { QuantitySelector, Image } from "@frontline/stories";
+import type { Metadata } from "next";
 
 type ProductDetailPageProps = {
   params: Promise<{
     id: number;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const { id } = await params;
+  const productDetails = await getProductDetails(Number(id));
+
+  if (!productDetails) {
+    return {
+      title: "Product Not Found",
+      description: "The product you're looking for does not exist.",
+    };
+  }
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  return {
+    title: productDetails.title,
+    description: productDetails.description,
+    openGraph: {
+      title: productDetails.title,
+      description: productDetails.description,
+      url: `${baseUrl}/product/${id}`,
+      type: "website",
+      images: productDetails.images?.length ? [productDetails.images[0]] : [],
+    },
+    alternates: {
+      canonical: `${baseUrl}/product/${id}`,
+    },
+  };
+}
 
 export default async function ProductDetailPage({
   params,
